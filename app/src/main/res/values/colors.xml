@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#B0DBD6</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#8BC34A</color>
+
+    <color name="black_overlay">#66000000</color>
+
+
+    <color name="text_color_default">#505050</color>
+
+    <color name="accordion_border_color">#dedede</color>
+    <color name="accordion_header_color">#f6f6f6</color>
+    <color name="accordion_header_border_shadow">#FFFFFF</color>
+    <color name="accordion_section_color">#f0f0f0</color>
+
+    <color name="button_color_border">#FFD1D1D1</color>
+    <color name="button_color_border_focused">#b4b4b4</color>
+    <color name="dialog_color_background">#FFD1D1D1</color>
+
+    <color name="button_color_start">#6CCB1B</color>
+    <color name="button_color_end">#6CCB1B</color>
+    <color name="color_primary">#050B2E</color>
+</resources>

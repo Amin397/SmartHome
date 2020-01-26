@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16sp"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingBottom="24sp"
+    android:paddingLeft="20sp"
+    android:paddingRight="20sp"
+    android:paddingTop="10sp"
+    android:id="@+id/cell"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <ImageButton
+        android:id="@+id/share"
+        android:layout_width="48sp"
+        android:layout_height="48sp"
+        android:background="@drawable/roundcorner"
+        android:contentDescription="@string/share"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:srcCompat="@drawable/ic_dvr_24dp"
+        tools:clickable="true" />
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/os"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginStart="52dp"
+        android:layout_marginEnd="52dp" />
+
+    <ImageButton
+        android:id="@+id/call"
+        android:layout_width="48sp"
+        android:layout_height="48sp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/roundcorner"
+        android:contentDescription="@string/call"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        app:srcCompat="@drawable/ic_call_24dp"
+        tools:clickable="true" />
+
+</RelativeLayout>

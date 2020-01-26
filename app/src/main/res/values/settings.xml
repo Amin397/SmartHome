@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pref_key_coverage_sampling_interval">CoverageTestSamplingInterval</string>
+    <string name="pref_key_coverage_total_sampling_time">CoverageTestTotalSamplingTime</string>
+    <string name="pref_key_call_number">CallTestNumber</string>
+    <string name="pref_key_call_waiting_interval">CallTestWaitingInterval</string>
+    <string name="pref_key_call_call_duration">CallTestCallDuration</string>
+    <string name="pref_key_call_calls_count">CallTestCallsCount</string>
+    <string name="pref_key_sms_number">SmsTestNumber</string>
+    <string name="pref_key_sms_message_content">SmsTestMessageContent</string>
+    <string name="pref_key_sms_send_wait_time">SmsTestSendWaitTime</string>
+    <string name="pref_key_sms_delivery_wait_time">SmsTestDeliveryWaitTime</string>
+    <string name="pref_key_latency_server_address">LatencyTestServerAddress</string>
+    <string name="pref_key_latency_ping_count">LatencyTestPingCount</string>
+    <string name="pref_key_download_file_url">DownloadTestFileUrl</string>
+    <string name="pref_key_download_file_size">DownloadTestFileSize</string>
+    <string name="pref_key_upload_server_address">UploadTestServerAddress</string>
+    <string name="pref_key_upload_file_size">UploadTestFileSize</string>
+
+    <integer name="pref_default_coverage_sampling_interval">2</integer>
+    <integer name="pref_default_coverage_total_sampling_time">10</integer>
+
+    <integer name="pref_default_call_waiting_interval">1</integer>
+    <integer name="pref_default_call_call_duration">20</integer>
+    <integer name="pref_default_call_calls_count">3</integer>
+
+    <string name="pref_default_sms_message_content">تست</string>
+    <integer name="pref_default_sms_send_wait_time">5</integer>
+    <integer name="pref_default_sms_delivery_wait_time">5</integer>
+    <string name="pref_default_latency_server_address">4.2.2.2</string>
+    <integer name="pref_default_latency_ping_count">25</integer>
+    <string name="pref_default_download_file_url">http://ipv4.download.thinkbroadband.com/5MB.zip</string>
+    <integer name="pref_default_download_file_size">2048</integer>
+    <string name="pref_default_upload_server_address">http://www.tinyupload.com/</string>
+    <integer name="pref_default_upload_file_size">512</integer>
+
+
+
+</resources>

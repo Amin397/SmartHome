@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="16sp"
+    android:background="?android:attr/selectableItemBackground"
+    android:orientation="horizontal"
+    android:paddingBottom="24sp"
+    android:paddingLeft="20sp"
+    android:paddingRight="20sp"
+    android:paddingTop="10sp"
+    android:id="@+id/cell"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:text="some filename"
+        android:layout_alignParentTop="true"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/type"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:text="some type"
+        android:layout_below="@id/name" />
+
+    <ImageButton
+        android:id="@+id/open"
+        android:layout_width="48sp"
+        android:layout_height="48sp"
+        android:layout_alignParentEnd="true"
+        android:background="@drawable/roundcorner"
+        android:focusableInTouchMode="true"
+        app:srcCompat="@drawable/ic_open_in_new_24dp"
+        tools:clickable="true"
+        android:focusable="true" />
+
+</RelativeLayout>
