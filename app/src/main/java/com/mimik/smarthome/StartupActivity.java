@@ -11,10 +11,13 @@ import android.os.Handler;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.Gson;
 import com.mimik.edgeappauth.EdgeAppAuth;
 import com.mimik.edgeappauth.authobject.AuthConfig;
@@ -28,7 +31,6 @@ import com.mimik.smarthome.edgeSDK.IdToken;
 import com.mimik.smarthome.edgeSDK.MdsProvider;
 import com.mimik.smarthome.userinterface.homePanel.HPIdle;
 import com.mimik.smarthome.userinterface.visitorPanel.VPIdle;
-import com.mimik.smarthome.userinterface.visitorPanel.VSplashScreen;
 
 import net.openid.appauth.AppAuthConfiguration;
 import net.openid.appauth.AuthorizationService;
@@ -65,22 +67,25 @@ public class StartupActivity extends AppCompatActivity {
     private List<AsyncTask> mTaskList;
 
     EdgeAppOps mAppOps;
-    ProgressBar startupProgress;
-    ImageView loggedIn;
-    ImageView superDriveMS;
-    ImageView msgMS;
+    LottieAnimationView logged , super_driver , messaging;
+    private ImageView loggedIn , superD , messaged;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
             Log.d(TAG, "onCreate");
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN);
             setContentView(R.layout.activity_startup);
 
-            startupProgress = findViewById(R.id.startupProgress);
-            loggedIn = findViewById(R.id.logged_in_state);
-            superDriveMS = findViewById(R.id.superdrive_state);
-            msgMS = findViewById(R.id.message_state);
+            logged = (LottieAnimationView) findViewById(R.id.login_load_id);
+            loggedIn = (ImageView) findViewById(R.id.img_logged_id);
+
+            super_driver = (LottieAnimationView) findViewById(R.id.super_driver_loading_id);
+            superD = (ImageView) findViewById(R.id.img_super_id);
+
+            messaging = (LottieAnimationView) findViewById(R.id.messaging_loading_id);
+            messaged = (ImageView) findViewById(R.id.img_message_id);
 
 
             EdgeConfig config = new EdgeConfig();
@@ -89,33 +94,33 @@ public class StartupActivity extends AppCompatActivity {
 
             new LocalDeviceIdTask().execute();
             if (hasToken()) {
+                logged.setVisibility(View.GONE);
                 loggedIn.setImageResource(R.drawable.ic_check_box_selected_24dp);
             } else {
-                loggedIn.setImageResource(R.drawable.ic_check_box_empty_24dp);
+                //loggedIn.setImageResource(R.drawable.ic_check_box_empty_24dp);
                 doAuthLogin();
             }
-
         }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume");
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        Log.d(TAG, "onResume");
-//
-//        Intent intent = getIntent();
-//        logIntent(TAG, intent);
-//        if (intent != null) {
-//            if (intent.getExtras() == null) {
-//                if (hasToken()) {
-//                    loggedIn.setImageResource(R.drawable.ic_check_box_selected_24dp);
-//                } else {
-//                    loggedIn.setImageResource(R.drawable.ic_check_box_empty_24dp);
-//                    doAuthLogin();
-//                }
-//            }
-//        }
-//    }
+        Intent intent = getIntent();
+        logIntent(TAG, intent);
+        if (intent != null) {
+            if (intent.getExtras() == null) {
+                if (hasToken()) {
+                    logged.setVisibility(View.GONE);
+                    loggedIn.setImageResource(R.drawable.ic_check_box_selected_24dp);
+                } else {
+                    //loggedIn.setImageResource(R.drawable.ic_check_box_empty_24dp);
+                    doAuthLogin();
+                }
+            }
+        }
+    }
 
     // Handles incoming intents
     @Override
@@ -206,7 +211,7 @@ public class StartupActivity extends AppCompatActivity {
                     Intent completedIntent = new Intent();
                     completedIntent.putExtra(INTENT_EXTRA_ACCESSTOKEN, tokenResponse.accessToken);
                     completedIntent.putExtra(INTENT_EXTRA_ACCOUNTID, getAccountIdFromIdToken(authResponse.getIdToken()));
-//                    saveTokens(context, authResponse.getAccessToken(), tokenResponse.accessToken);
+                    //saveTokens(context, authResponse.getAccessToken(), tokenResponse.accessToken);
                     try {
                         postIntent.send(this, 0, completedIntent);
                     } catch (PendingIntent.CanceledException e) {
@@ -250,10 +255,8 @@ public class StartupActivity extends AppCompatActivity {
                 }
             }, 1000);
         } else {
-            loggedIn.setImageResource(R.drawable.ic_check_box_empty_24dp);
             doAuthLogin();
         }
-
     }
 
     private void doAuthLogin() {
@@ -304,7 +307,8 @@ public class StartupActivity extends AppCompatActivity {
             Log.d(TAG, "McmAddSuperDriveContainerTask - onPostExecute");
             if (ret.response != null) {
                 toast(getResources().getString(R.string.toast_superdrive_mcm));
-                superDriveMS.setImageResource(R.drawable.ic_check_box_selected_24dp);
+                super_driver.setVisibility(View.GONE);
+                superD.setImageResource(R.drawable.ic_check_box_selected_24dp);
             } else {
                 toast(getResources().getString(R.string.toast_failed_mcm));
             }
@@ -331,10 +335,10 @@ public class StartupActivity extends AppCompatActivity {
         protected void onPostExecute(final MicroserviceDeploymentStatus ret) {
                   Log.d(TAG, "McmAddMessageContainerTask - onPostExecute");
             if (ret.response != null) {
-                toast(getResources().getString(R.string.toast_message_mcm));
-                msgMS.setImageResource(R.drawable.ic_check_box_selected_24dp);
 
-                startupProgress.setVisibility(View.INVISIBLE);
+                messaging.setVisibility(View.GONE);
+                messaged.setImageResource(R.drawable.ic_check_box_selected_24dp);
+                toast(getResources().getString(R.string.toast_message_mcm));
 
                 final Handler handler = new Handler();
                 handler.postDelayed(new Runnable() {
@@ -359,13 +363,12 @@ public class StartupActivity extends AppCompatActivity {
 
                             startActivity(intent);
                         }
-                        else{
+                        else if(BuildConfig.FLAVOR.contains("TMainPanel")){
 
                             Intent intent = new Intent(StartupActivity.this, MainActivity.class);
 
                             intent.putExtra("edgeToken", mEdgeAccessToken);
                             intent.putExtra("userToken", mUserAccessToken);
-
 
                             startActivity(intent);
 

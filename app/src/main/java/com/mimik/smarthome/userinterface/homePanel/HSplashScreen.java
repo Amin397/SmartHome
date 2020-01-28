@@ -28,13 +28,9 @@ public class HSplashScreen extends AppCompatActivity {
     }
 
     private void start() {
-
-
         Intent i = new Intent(this, HPIdle.class);
         startActivity(i);
         finish();
-
-
 
     }
 

@@ -27,6 +27,8 @@ import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -123,6 +125,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vpidle);
         initializeComponents();
         init_Text_to_Speech();
@@ -189,7 +193,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         mProgressBar = findViewById(R.id.progressBar);
         mCallBar = findViewById(R.id.callProgress);
         mScanButton = findViewById(R.id.buttonScan);
-        mRecyclerView = findViewById(R.id.recyclerView);
+        //mRecyclerView = findViewById(R.id.recyclerView);
         mAnswer = findViewById(R.id.buttonAnswer);
         mIgnore = findViewById(R.id.buttonIgnore);
 
@@ -211,9 +215,9 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
         mLayoutManager = new LinearLayoutManager(this);
 
-        mRecyclerView.setLayoutManager(mLayoutManager);
+        /*mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        mRecyclerView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);*/
 
         mAnswer.setVisibility(View.INVISIBLE);
 
@@ -332,7 +336,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         AlertDialog alertDialog = new AlertDialog.Builder(this).create();
         alertDialog.setTitle(Tittle);
         alertDialog.setMessage(Message);
-        alertDialog.setIcon(R.drawable.firstpage);
+        //alertDialog.setIcon(R.drawable.firstpage);
 
         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int which) {
@@ -471,9 +475,10 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     @Override
     protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
         setIntent(intent);
         readFromIntent(intent);
-        if(NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())){
+        if (NfcAdapter.ACTION_TAG_DISCOVERED.equals(intent.getAction())) {
             myTag = intent.getParcelableExtra(NfcAdapter.EXTRA_TAG);
         }
     }

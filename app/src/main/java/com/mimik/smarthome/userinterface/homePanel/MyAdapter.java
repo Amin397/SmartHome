@@ -6,6 +6,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
+
+//CHECKED
 public class MyAdapter extends FragmentPagerAdapter {
 
     private Context myContext;

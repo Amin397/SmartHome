@@ -10,6 +10,8 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
 
+
+//CHECKED
 public class ToggleImageLabeledButton extends ImageView {
 
   private int imageOn;
@@ -26,7 +28,6 @@ public class ToggleImageLabeledButton extends ImageView {
       imageOff = a.getResourceId(R.styleable.toggle_image_labeled_button_icon_resource_off, 0);
       setImageResource(imageOff);
     }
-
   }
 
   private void handleNewState(boolean newState) {

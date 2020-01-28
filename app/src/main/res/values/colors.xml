@@ -6,7 +6,7 @@
 
     <color name="black_overlay">#66000000</color>
 
-
+    <color name="splash_background">#6e5773</color>
     <color name="text_color_default">#505050</color>
 
     <color name="accordion_border_color">#dedede</color>

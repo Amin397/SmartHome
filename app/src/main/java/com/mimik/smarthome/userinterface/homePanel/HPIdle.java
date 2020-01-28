@@ -56,6 +56,8 @@ import android.text.style.ImageSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -75,6 +77,8 @@ import retrofit2.Response;
 
 import static com.mimik.smarthome.infrastructure.StaticData.getContext;
 
+
+//CHECKED
 public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSelectCallback, MsgProvider.MsgListener {
 
     //-----
@@ -133,6 +137,8 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_hpidle);
 
         StaticData.setContext(this);
@@ -230,8 +236,6 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
                 }
             }
         });
-
-
     }
     //_____________________________________________________
     private void call_init()
@@ -247,7 +251,7 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         //not visible until we start making a call
         mCallBar.setVisibility(View.INVISIBLE);
 
-        mScanButton.setEnabled(false);
+        mScanButton.setEnabled(true);
         mScanButton.setOnClickListener(view -> {
             mProgressBar.setVisibility(View.VISIBLE);
             new HPIdle.RefreshDeviceListTask().execute();
@@ -562,8 +566,6 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         }
     }
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -588,5 +590,4 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         }
         multiPermissions();
     }
-
 }

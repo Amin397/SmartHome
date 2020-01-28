@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import com.mimik.smarthome.R;
 
+
+//CHECKED
 public class SpinnerAdapter extends ArrayAdapter<String> {
 
     private LayoutInflater _inflater;

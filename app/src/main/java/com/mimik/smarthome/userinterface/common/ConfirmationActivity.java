@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import com.mimik.smarthome.R;
 
+
+//CHECKED
 public class ConfirmationActivity extends Activity {
     private TextView txtTitle;
     private TextView lblMessage;
