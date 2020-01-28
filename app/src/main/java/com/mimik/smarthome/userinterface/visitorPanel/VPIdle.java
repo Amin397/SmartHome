@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.Manifest;
+import android.animation.Animator;
 import android.app.AlertDialog;
 import android.app.PendingIntent;
 import android.content.Context;
@@ -27,11 +28,13 @@ import android.speech.tts.TextToSpeech;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewPropertyAnimator;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -122,6 +125,14 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     private TextToSpeech mTTS;
 
 
+
+
+
+
+
+    private ImageView logo_click;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,7 +140,45 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN , WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_vpidle);
         initializeComponents();
-        init_Text_to_Speech();
+        //init_Text_to_Speech();
+
+        logo_click.setOnClickListener(logoAnimationVisitor);
+    }
+
+    private ImageView.OnClickListener logoAnimationVisitor
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            animationLogo();
+        }
+    };
+
+    private void animationLogo() {
+        ViewPropertyAnimator viewPropertyAnimator = logo_click.animate();
+        viewPropertyAnimator.x(50f);
+        viewPropertyAnimator.y(80f);
+        viewPropertyAnimator.setDuration(1000);
+        viewPropertyAnimator.setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                logo_click.setImageResource(R.drawable.mimik_logo_small);
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        });
     }
 
 
@@ -162,8 +211,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
 
         mBuzzText = (EditText) findViewById(R.id.TBNum);
+        logo_click = (ImageView) findViewById(R.id.image_logo_visitor_id);
         mMainPass = (EditText) findViewById(R.id.TPass);
-        //mbtnGo = (Button) findViewById(R.id.bGo);
 
         mCall =(ImageButton)findViewById(R.id.bcall);
         mUnlock=(ImageButton)findViewById(R.id.bunlock);
@@ -178,8 +227,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         });
 
 
-        nfc_process();
-        call_init();
+        //nfc_process();
+        //call_init();
 
 
     }
@@ -193,11 +242,12 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         mProgressBar = findViewById(R.id.progressBar);
         mCallBar = findViewById(R.id.callProgress);
         mScanButton = findViewById(R.id.buttonScan);
-        //mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView = findViewById(R.id.recyclerView);
         mAnswer = findViewById(R.id.buttonAnswer);
         mIgnore = findViewById(R.id.buttonIgnore);
 
         //not visible until we start making a call
+
         mCallBar.setVisibility(View.INVISIBLE);
 
         mScanButton.setEnabled(false);
@@ -660,7 +710,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     @Override
     protected void onResume() {
         super.onResume();
-        mProgressBar.setVisibility(View.INVISIBLE);
+        //mProgressBar.setVisibility(View.INVISIBLE);
         Intent intent = getIntent();
         if (intent.hasExtra("edgeToken")) {
             mEdgeAccessToken = (String) intent.getSerializableExtra("edgeToken");

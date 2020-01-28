@@ -11,21 +11,21 @@
 
     <ProgressBar
         android:id="@+id/callProgress"
+        android:visibility="gone"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_margin="8dp"
         android:layout_height="wrap_content"
         />
-
     <Button
+        android:visibility="gone"
         android:id="@+id/buttonScan"
         android:layout_width="249dp"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_margin="8dp"
         android:text="@string/scan_for_devices" />
-
         <LinearLayout
             android:layout_width="1267dp"
             android:visibility="gone"
@@ -39,6 +39,7 @@
 
             <LinearLayout
                 android:id="@+id/LLT"
+                android:visibility="gone"
                 android:layout_width="317dp"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
@@ -70,6 +71,7 @@
             <LinearLayout
                 android:layout_width="138dp"
                 android:layout_height="245dp"
+                android:visibility="gone"
                 android:orientation="vertical">
 
                 <ImageButton
@@ -94,6 +96,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:visibility="gone"
                 android:orientation="vertical">
 
                 <TextView
@@ -114,6 +117,7 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="387dp"
                 android:layout_height="14dp"
+                android:visibility="gone"
                 android:layout_marginStart="40dp"
                 android:layout_marginEnd="8dp"
                 android:indeterminate="true" />
@@ -156,4 +160,14 @@
                 tools:clickable="true" />
 
         </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/mimik_logo_larg"
+        android:clickable="true"
+        android:id="@+id/image_logo_visitor_id"
+        android:layout_height="wrap_content"/>
+
+
 </RelativeLayout>

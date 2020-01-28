@@ -88,9 +88,9 @@ public class StartupActivity extends AppCompatActivity {
             messaged = (ImageView) findViewById(R.id.img_message_id);
 
 
-            EdgeConfig config = new EdgeConfig();
+            /*EdgeConfig config = new EdgeConfig();
             mAppOps = new EdgeAppOps(this, config);
-            mTaskList = new ArrayList<>();
+            mTaskList = new ArrayList<>();*/
 
             new LocalDeviceIdTask().execute();
             if (hasToken()) {
@@ -98,7 +98,7 @@ public class StartupActivity extends AppCompatActivity {
                 loggedIn.setImageResource(R.drawable.ic_check_box_selected_24dp);
             } else {
                 //loggedIn.setImageResource(R.drawable.ic_check_box_empty_24dp);
-                doAuthLogin();
+                //doAuthLogin();
             }
         }
 
@@ -116,7 +116,7 @@ public class StartupActivity extends AppCompatActivity {
                     loggedIn.setImageResource(R.drawable.ic_check_box_selected_24dp);
                 } else {
                     //loggedIn.setImageResource(R.drawable.ic_check_box_empty_24dp);
-                    doAuthLogin();
+                    //doAuthLogin();
                 }
             }
         }
@@ -255,7 +255,7 @@ public class StartupActivity extends AppCompatActivity {
                 }
             }, 1000);
         } else {
-            doAuthLogin();
+            //doAuthLogin();
         }
     }
 
