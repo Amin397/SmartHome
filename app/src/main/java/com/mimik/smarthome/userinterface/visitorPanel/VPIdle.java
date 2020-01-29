@@ -39,6 +39,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mimik.edgeappops.EdgeAppOps;
@@ -131,6 +132,9 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
 
     private ImageView logo_click;
+    private View include_V;
+    private LottieAnimationView anim_setting;
+    private LottieAnimationView anim_focuse;
 
 
     @Override
@@ -141,6 +145,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         setContentView(R.layout.activity_vpidle);
         initializeComponents();
         //init_Text_to_Speech();
+
+        anim_focuse.playAnimation();
 
         logo_click.setOnClickListener(logoAnimationVisitor);
     }
@@ -161,12 +167,14 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         viewPropertyAnimator.setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
+                anim_focuse.setVisibility(View.GONE);
                 logo_click.setImageResource(R.drawable.mimik_logo_small);
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
-
+                include_V.setVisibility(View.VISIBLE);
+                anim_setting.playAnimation();
             }
 
             @Override
@@ -209,7 +217,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     private void initializeComponents() {
 
-
+        anim_setting = (LottieAnimationView) findViewById(R.id.anim_setting_id);
+        anim_focuse = (LottieAnimationView) findViewById(R.id.anim_focuse_id);
         mBuzzText = (EditText) findViewById(R.id.TBNum);
         logo_click = (ImageView) findViewById(R.id.image_logo_visitor_id);
         mMainPass = (EditText) findViewById(R.id.TPass);
@@ -218,6 +227,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         mUnlock=(ImageButton)findViewById(R.id.bunlock);
 
         mnfcText = (TextView) findViewById(R.id.nfcText);
+        include_V = findViewById(R.id.include_visitor_id);
 
         mCall.setOnClickListener(new View.OnClickListener() {
             @Override
