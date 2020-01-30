@@ -189,6 +189,5 @@
         android:layout_width="match_parent"
         layout="@layout/visitor_simple"
         android:layout_height="match_parent"/>
-
-
+    
 </RelativeLayout>

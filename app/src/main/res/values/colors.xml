@@ -3,12 +3,12 @@
     <color name="colorPrimary">#B0DBD6</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#8BC34A</color>
-
+    <color name="edittext_color">#AFC7EB</color>
     <color name="black_overlay">#66000000</color>
     <color name="focuse_color">#AD288CF8</color>
     <color name="splash_background">#6e5773</color>
     <color name="text_color_default">#505050</color>
-
+    <color name="button_color">#EDC484</color>
     <color name="accordion_border_color">#dedede</color>
     <color name="accordion_header_color">#f6f6f6</color>
     <color name="accordion_header_border_shadow">#FFFFFF</color>

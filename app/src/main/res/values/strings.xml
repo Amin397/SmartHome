@@ -49,5 +49,6 @@
     <string name="VirtualKeys">Virtual Keys</string>
     <string name="FoB">FoB</string>
     <string name="Users">Users</string>
+    <string name="password">Password</string>
 
 </resources>
