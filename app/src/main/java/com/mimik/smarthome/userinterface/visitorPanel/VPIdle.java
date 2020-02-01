@@ -1,6 +1,7 @@
 package com.mimik.smarthome.userinterface.visitorPanel;
 
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,6 +14,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.icu.text.SimpleDateFormat;
+import android.icu.util.Calendar;
 import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
@@ -20,6 +23,7 @@ import android.nfc.NfcAdapter;
 import android.nfc.Tag;
 import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.os.Vibrator;
@@ -139,7 +143,14 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     private TextInputLayout txt_buzz_num , txt_password;
     private Button btn_buzz_click , btn_password_click;
 
+    private TextView txt_time , txt_date;
 
+    private Calendar calendar;
+    private SimpleDateFormat dateFormat;
+    private String date;
+
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -155,6 +166,25 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         btn_buzz_click.setOnClickListener(buzzClickListener);
         btn_password_click.setOnClickListener(passwordClickListener);
 
+        timeDisplay();
+        dateDisplay();
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void dateDisplay() {
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("MM-dd-yyyy");
+        date = dateFormat.format(calendar.getTime());
+        txt_date.setText(date);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.N)
+    private void timeDisplay() {
+        calendar = Calendar.getInstance();
+        dateFormat = new SimpleDateFormat("h:mm a");
+        date = dateFormat.format(calendar.getTime());
+        txt_time.setText(date);
     }
 
     private Button.OnClickListener passwordClickListener
@@ -301,10 +331,12 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         anim_setting = (LottieAnimationView) findViewById(R.id.anim_setting_id);
         anim_focuse = (LottieAnimationView) findViewById(R.id.anim_focuse_id);
         mBuzzText = (EditText) findViewById(R.id.TBNum);
+        txt_date = (TextView) findViewById(R.id.txt_date_id);
         logo_click = (ImageView) findViewById(R.id.image_logo_visitor_id);
         mMainPass = (EditText) findViewById(R.id.TPass);
         btn_buzz_click = (Button) findViewById(R.id.btn_show_username_id);
         txt_buzz_num = (TextInputLayout) findViewById(R.id.buzz_layout_id);
+        txt_time = (TextView) findViewById(R.id.txt_time_id);
 
         mCall =(ImageButton)findViewById(R.id.bcall);
         mUnlock=(ImageButton)findViewById(R.id.bunlock);
