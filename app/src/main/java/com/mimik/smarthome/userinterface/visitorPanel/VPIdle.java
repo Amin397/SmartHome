@@ -43,6 +43,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -169,7 +170,19 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         timeDisplay();
         dateDisplay();
 
+        anim_setting.setOnClickListener(settingClickListener);
+
     }
+
+    private LottieAnimationView.OnClickListener settingClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Setting !", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+    };
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void dateDisplay() {

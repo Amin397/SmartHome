@@ -159,7 +159,19 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         img_accept_call.setOnClickListener(acceptCallClickListener);
         img_reject_call.setOnClickListener(rejectCallClicListener);
         img_open_door.setOnClickListener(openDoorClickListener);
+
+        anim_setting.setOnClickListener(settingClickListener);
     }
+
+    private LottieAnimationView.OnClickListener settingClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "setting !", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+    };
 
     private ImageView.OnClickListener openDoorClickListener
              = new View.OnClickListener() {
