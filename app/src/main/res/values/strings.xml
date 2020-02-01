@@ -50,5 +50,7 @@
     <string name="FoB">FoB</string>
     <string name="Users">Users</string>
     <string name="password">Password</string>
+    <string name="open_door">Open Door</string>
+    <string name="call_unit">Call Unit</string>
 
 </resources>

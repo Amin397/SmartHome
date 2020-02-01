@@ -246,7 +246,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
             @Override
             public void onAnimationStart(Animator animation) {
                 anim_focuse.setVisibility(View.GONE);
-                logo_click.setImageResource(R.drawable.mimik_logo_larg);
+                logo_click.setImageResource(R.drawable.mimik_logo_small2);
 
             }
 
