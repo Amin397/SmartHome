@@ -298,7 +298,6 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         });
     }
 
-
     public void init_Text_to_Speech(){
 
         mTTS = new TextToSpeech(this, new TextToSpeech.OnInitListener() {

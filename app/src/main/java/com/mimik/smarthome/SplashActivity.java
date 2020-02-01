@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.mimik.edgeappops.EdgeAppOps;
 import com.mimik.edgeappops.edgeservice.EdgeConfig;
 import com.mimik.smarthome.edgeSDK.Utils;
+import com.mimik.smarthome.userinterface.homePanel.HPIdle;
 import com.mimik.smarthome.userinterface.visitorPanel.VPIdle;
 
 public class SplashActivity extends AppCompatActivity {
@@ -47,7 +48,7 @@ public class SplashActivity extends AppCompatActivity {
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        startActivity(new Intent(SplashActivity.this , VPIdle.class));
+                        startActivity(new Intent(SplashActivity.this , HPIdle.class));
 
                     }
                 }, 750);

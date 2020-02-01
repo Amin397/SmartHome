@@ -10,9 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.chip.Chip;
 import com.google.android.material.chip.ChipDrawable;
 import com.google.android.material.chip.ChipGroup;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -128,7 +130,8 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     ViewPager   mViewpageSetting;
 
 
-
+    private LottieAnimationView anim_setting;
+    private ImageView img_accept_call , img_reject_call , img_open_door;
 
 
     private ChipGroup MessageGroup;
@@ -143,10 +146,6 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
         StaticData.setContext(this);
 
-
-
-
-
         //-------------------------------
 
         //---------Check Configuration-------------
@@ -154,14 +153,55 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
         call_init();
         AdminPanelInit();
+
+        anim_setting.playAnimation();
+
+        img_accept_call.setOnClickListener(acceptCallClickListener);
+        img_reject_call.setOnClickListener(rejectCallClicListener);
+        img_open_door.setOnClickListener(openDoorClickListener);
     }
+
+    private ImageView.OnClickListener openDoorClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Door Opened !", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+    };
+
+    private ImageView.OnClickListener rejectCallClicListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Video Call Rejected !", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+    };
+
+    private ImageView.OnClickListener acceptCallClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Video Call Connected !", Snackbar.LENGTH_LONG);
+            snackbar.show();
+        }
+    };
     //----------------------------------------
     private void AdminPanelInit(){
 
 
         //-------------Setting TAB------------------
         mTabSetting=findViewById(R.id.SettingTab);
+        anim_setting = (LottieAnimationView) findViewById(R.id.anim_setting_h_id);
         mViewpageSetting=findViewById(R.id.ViewpageSetting);
+
+        img_accept_call = (ImageView) findViewById(R.id.img_accept_call_id);
+        img_open_door = (ImageView) findViewById(R.id.img_open_door_id);
+        img_reject_call = (ImageView) findViewById(R.id.img_reject_call_id);
 
         mTabSetting.addTab(mTabSetting.newTab().setText("VirtualKeys"));
         mTabSetting.addTab(mTabSetting.newTab().setText("FoB"));

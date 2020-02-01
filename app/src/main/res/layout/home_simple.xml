@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:src="@drawable/accept_call"
+        android:layout_width="240dp"
+        android:id="@+id/img_accept_call_id"
+        android:layout_centerInParent="true"
+        android:layout_height="240dp"/>
+
+    <ImageView
+        android:id="@+id/img_reject_call_id"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignBottom="@+id/img_accept_call_id"
+        android:layout_marginEnd="-71dp"
+        android:layout_marginBottom="-52dp"
+        android:layout_toStartOf="@+id/img_accept_call_id"
+        android:src="@drawable/reject_call" />
+
+    <ImageView
+        android:id="@+id/img_open_door_id"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_alignBottom="@+id/img_accept_call_id"
+        android:layout_marginStart="-81dp"
+        android:layout_marginEnd="-71dp"
+        android:layout_marginBottom="-45dp"
+        android:layout_toEndOf="@+id/img_accept_call_id"
+        android:src="@drawable/open_door" />
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="150dp"
+        app:lottie_fileName="setting.json"
+        app:lottie_loop="true"
+        app:lottie_speed="0.75"
+        app:lottie_autoPlay="true"
+        android:id="@+id/anim_setting_h_id"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="20dp"
+        android:layout_height="150dp"/>
+
+
+
+</RelativeLayout>
