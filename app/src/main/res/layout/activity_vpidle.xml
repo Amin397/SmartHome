@@ -165,7 +165,6 @@
         android:layout_width="wrap_content"
         android:layout_centerInParent="true"
         android:src="@drawable/mimik_logo_larg"
-        android:clickable="true"
         android:id="@+id/image_logo_visitor_id"
         android:layout_height="wrap_content"/>
 
@@ -179,8 +178,8 @@
         android:layout_alignTop="@id/image_logo_visitor_id"
         android:layout_alignBottom="@id/image_logo_visitor_id"
         android:layout_centerInParent="true"
-        android:layout_alignLeft="@id/image_logo_visitor_id"
-        android:layout_alignRight="@id/image_logo_visitor_id"
+        android:layout_alignStart="@id/image_logo_visitor_id"
+        android:layout_alignEnd="@id/image_logo_visitor_id"
         android:layout_height="0dp"/>
 
     <include

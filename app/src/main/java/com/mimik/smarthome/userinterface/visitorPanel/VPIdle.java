@@ -44,7 +44,6 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.mimik.edgeappops.EdgeAppOps;
@@ -141,7 +140,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     private LottieAnimationView anim_setting;
     private LottieAnimationView anim_focuse;
 
-    private TextInputLayout txt_buzz_num , txt_password;
+    private TextView txt_buzz_num , txt_password;
     private Button btn_buzz_click , btn_password_click;
 
     private TextView txt_time , txt_date;
@@ -164,15 +163,22 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         anim_focuse.playAnimation();
         logo_click.setOnClickListener(logoAnimationVisitor);
 
-        btn_buzz_click.setOnClickListener(buzzClickListener);
-        btn_password_click.setOnClickListener(passwordClickListener);
-
         timeDisplay();
         dateDisplay();
 
         anim_setting.setOnClickListener(settingClickListener);
 
+        txt_buzz_num.setOnClickListener(buzzAnimClickListener);
+
     }
+
+    private TextView.OnClickListener buzzAnimClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            animationBuzzButtonClick();
+        }
+    };
 
     private LottieAnimationView.OnClickListener settingClickListener
              = new View.OnClickListener() {
@@ -236,40 +242,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         });
     }
 
-    private Button.OnClickListener buzzClickListener
-             = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            animationBuzzButtonClick();
-        }
-    };
-
     private void animationBuzzButtonClick() {
-        ViewPropertyAnimator viewPropertyAnimator = txt_buzz_num.animate();
-        viewPropertyAnimator.x(300f);
-        viewPropertyAnimator.setDuration(900);
-        viewPropertyAnimator.setListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                txt_buzz_num.setEnabled(true);
-                txt_buzz_num.setSelected(true);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
     }
 
     private ImageView.OnClickListener logoAnimationVisitor
@@ -282,14 +255,13 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     private void animationLogo() {
         ViewPropertyAnimator viewPropertyAnimator = logo_click.animate();
-        viewPropertyAnimator.x(50f);
-        viewPropertyAnimator.y(80f);
+        viewPropertyAnimator.x(0f);
+        viewPropertyAnimator.y(0f);
         viewPropertyAnimator.setDuration(1000);
         viewPropertyAnimator.setListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
                 anim_focuse.setVisibility(View.GONE);
-                logo_click.setImageResource(R.drawable.mimik_logo_small2);
 
             }
 
@@ -338,17 +310,17 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     private void initializeComponents() {
 
-        txt_password = (TextInputLayout) findViewById(R.id.password_layout_id);
-        btn_password_click = (Button) findViewById(R.id.btn_show_password_id);
+
         anim_setting = (LottieAnimationView) findViewById(R.id.anim_setting_id);
         anim_focuse = (LottieAnimationView) findViewById(R.id.anim_focuse_id);
         mBuzzText = (EditText) findViewById(R.id.TBNum);
         txt_date = (TextView) findViewById(R.id.txt_date_id);
         logo_click = (ImageView) findViewById(R.id.image_logo_visitor_id);
         mMainPass = (EditText) findViewById(R.id.TPass);
-        btn_buzz_click = (Button) findViewById(R.id.btn_show_username_id);
-        txt_buzz_num = (TextInputLayout) findViewById(R.id.buzz_layout_id);
         txt_time = (TextView) findViewById(R.id.txt_time_id);
+
+        txt_password = (TextView) findViewById(R.id.txt_password);
+        txt_buzz_num = (TextView) findViewById(R.id.txt_buzz_num);
 
         mCall =(ImageButton)findViewById(R.id.bcall);
         mUnlock=(ImageButton)findViewById(R.id.bunlock);
