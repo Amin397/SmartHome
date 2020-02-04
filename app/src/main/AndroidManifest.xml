@@ -27,6 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".VideoCall"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
@@ -51,7 +53,19 @@
             android:screenOrientation="landscape" />
         <activity
             android:name=".userinterface.homePanel.HPIdle"
-            android:screenOrientation="landscape"></activity>
+            android:screenOrientation="landscape">
+            <intent-filter>
+                <action android:name="android.nfc.action.NDEF_DISCOVERED" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.action.TECH_DISCOVERED"
+                android:resource="@xml/nfc_tech_filter" />
+        </activity>
         <activity
             android:name=".userinterface.visitorPanel.VPIdle"
             android:screenOrientation="landscape">

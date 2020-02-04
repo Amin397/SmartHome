@@ -279,7 +279,7 @@
     </LinearLayout>
 
     <ImageView
-        android:src="@drawable/mimik_logo_small2"
+        android:src="@drawable/mimik_logo_larg"
         android:layout_width="wrap_content"
         android:layout_margin="10dp"
         android:layout_height="wrap_content"/>

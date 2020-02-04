@@ -2,9 +2,6 @@ package com.mimik.smarthome.userinterface.homePanel;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.app.NotificationCompat;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +21,9 @@ import com.google.zxing.qrcode.QRCodeWriter;
 import com.mimik.edgeappops.EdgeAppOps;
 import com.mimik.edgeappops.edgeservice.EdgeConfig;
 import com.mimik.smarthome.BuildConfig;
-import com.mimik.smarthome.MainActivity;
 import com.mimik.smarthome.Model.CAdmin;
 import com.mimik.smarthome.R;
+import com.mimik.smarthome.VideoCall;
 import com.mimik.smarthome.dataAccess.AdminRepository;
 import com.mimik.smarthome.dataAccess.SQLiteHelper;
 import com.mimik.smarthome.edgeSDK.Device;
@@ -36,32 +33,24 @@ import com.mimik.smarthome.edgeSDK.MdsProvider;
 import com.mimik.smarthome.edgeSDK.MsgProvider;
 import com.mimik.smarthome.edgeSDK.SignalMsg;
 import com.mimik.smarthome.edgeSDK.SuperDriveProvider;
-import com.mimik.smarthome.hwinterface.deviceUSB;
 import com.mimik.smarthome.infrastructure.StaticData;
 import com.mimik.smarthome.userinterface.common.ChatActivity;
-import com.mimik.smarthome.userinterface.visitorPanel.VPIdle;
 
 import android.Manifest;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Vibrator;
-import android.text.style.ImageSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -76,8 +65,6 @@ import java.util.List;
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 import retrofit2.Response;
-
-import static com.mimik.smarthome.infrastructure.StaticData.getContext;
 
 
 //CHECKED
@@ -159,7 +146,6 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         img_accept_call.setOnClickListener(acceptCallClickListener);
         img_reject_call.setOnClickListener(rejectCallClicListener);
         img_open_door.setOnClickListener(openDoorClickListener);
-
         anim_setting.setOnClickListener(settingClickListener);
     }
 
@@ -183,6 +169,7 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         }
     };
 
+
     private ImageView.OnClickListener rejectCallClicListener
              = new View.OnClickListener() {
         @Override
@@ -197,9 +184,7 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
              = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Snackbar snackbar = Snackbar
-                    .make(v, "Video Call Connected !", Snackbar.LENGTH_LONG);
-            snackbar.show();
+            startActivity(new Intent(HPIdle.this , VideoCall.class));
         }
     };
     //----------------------------------------
@@ -207,7 +192,7 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
 
         //-------------Setting TAB------------------
-        mTabSetting=findViewById(R.id.SettingTab);
+        mTabSetting = findViewById(R.id.SettingTab);
         anim_setting = (LottieAnimationView) findViewById(R.id.anim_setting_h_id);
         mViewpageSetting=findViewById(R.id.ViewpageSetting);
 
