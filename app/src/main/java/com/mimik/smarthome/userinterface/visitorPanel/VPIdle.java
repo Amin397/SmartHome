@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.graphics.Color;
 import android.icu.text.SimpleDateFormat;
 import android.icu.util.Calendar;
 import android.nfc.FormatException;
@@ -23,6 +24,7 @@ import android.nfc.tech.Ndef;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Parcelable;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
@@ -144,6 +146,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
     private String date;
 
     private EditText buzz_number , password;
+    private ImageButton btn_buzz , btn_pass;
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -166,7 +170,58 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
         txt_buzz_num.setOnClickListener(buzzAnimClickListener);
         txt_password.setOnClickListener(passwordClickListener);
+
+        btn_buzz.setOnClickListener(mBuzzClickListener);
+        btn_pass.setOnClickListener(mpasswordClickListener);
     }
+
+    private ImageButton.OnClickListener mpasswordClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (password.length() < 5){
+
+                YoYo.with(Techniques.Shake)
+                        .duration(1000)
+                        .repeat(0)
+                        .playOn(password);
+
+                password.setTextColor(Color.parseColor("#E53935"));
+
+                Snackbar snackbar = Snackbar
+                        .make(v, "Password is incorrect !", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+            }else {
+                password.setTextColor(Color.parseColor("#000000"));
+
+                //password login !
+            }
+        }
+    };
+
+    private ImageButton.OnClickListener mBuzzClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (buzz_number.length() < 5){
+                YoYo.with(Techniques.Shake)
+                        .duration(1000)
+                        .repeat(0)
+                        .playOn(buzz_number);
+
+                buzz_number.setTextColor(Color.parseColor("#E53935"));
+
+                Snackbar snackbar = Snackbar
+                        .make(v, "Unit Number must be 5 characters !", Snackbar.LENGTH_SHORT);
+                snackbar.show();
+            }else {
+                buzz_number.setTextColor(Color.parseColor("#000000"));
+
+
+                //unit buzzed !
+            }
+        }
+    };
 
     private TextView.OnClickListener buzzAnimClickListener
              = new View.OnClickListener() {
@@ -176,13 +231,16 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
                     .duration(1500)
                     .repeat(0)
                     .playOn(txt_buzz_num);
-            txt_buzz_num.setEnabled(false);
-            buzz_number.setOnClickListener(new View.OnClickListener() {
+            new CountDownTimer(1000, 1) {
                 @Override
-                public void onClick(View v) {
-                    Toast.makeText(VPIdle.this, "amin", Toast.LENGTH_SHORT).show();
+                public void onTick(long millisUntilFinished) {
                 }
-            });
+
+                @Override
+                public void onFinish() {
+                    txt_buzz_num.setVisibility(View.GONE);
+                }
+            }.start();
         }
     };
 
@@ -194,7 +252,16 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
                     .duration(1500)
                     .repeat(0)
                     .playOn(txt_password);
-            txt_password.setEnabled(false);
+            new CountDownTimer(1000, 1) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                }
+
+                @Override
+                public void onFinish() {
+                    txt_password.setVisibility(View.GONE);
+                }
+            }.start();
         }
     };
 
@@ -289,6 +356,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     private void initializeComponents() {
 
+        btn_buzz = (ImageButton) findViewById(R.id.btn_call_id);
+        btn_pass = (ImageButton) findViewById(R.id.btn_pass_id);
         buzz_number = (EditText) findViewById(R.id.edittext_buzz_num_id);
         password = (EditText) findViewById(R.id.edittext_password_id);
         anim_setting = (LottieAnimationView) findViewById(R.id.anim_setting_id);

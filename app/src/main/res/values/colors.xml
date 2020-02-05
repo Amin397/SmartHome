@@ -16,7 +16,7 @@
     <color name="button_color_border">#FFD1D1D1</color>
     <color name="button_color_border_focused">#b4b4b4</color>
     <color name="dialog_color_background">#FFD1D1D1</color>
-
+    <color name="color_red">#E53935</color>
     <color name="button_color_start">#6CCB1B</color>
     <color name="button_color_end">#6CCB1B</color>
     <color name="color_primary">#050B2E</color>

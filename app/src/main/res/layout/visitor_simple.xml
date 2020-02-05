@@ -43,15 +43,17 @@
             <EditText
                 android:layout_width="350dp"
                 android:layout_height="70dp"
-                android:enabled="true"
-                android:clickable="true"
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:maxLength="8"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
                 android:id="@+id/edittext_buzz_num_id"
                 android:layout_marginStart="20dp"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/back_buzz_id"
                 android:background="@drawable/shape_edittext"
-                android:textSize="24sp"
-                android:focusable="true" />
+                android:textSize="24sp" />
 
             <TextView
                 android:textAlignment="center"
@@ -112,14 +114,18 @@
 
             <EditText
                 android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:enabled="false"
                 android:id="@+id/edittext_password_id"
-                android:layout_marginStart="20dp"
-                android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/back_pass_id"
+                android:layout_centerVertical="true"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:textSize="24sp"
+                android:maxLines="1"
+                android:maxLength="8"
+                android:layout_marginStart="20dp"
                 android:background="@drawable/shape_edittext"
-                android:textSize="24sp" />
+                android:layout_height="70dp"/>
 
             <TextView
                 android:layout_width="330dp"
@@ -139,6 +145,7 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="300dp"
+        android:visibility="gone"
         app:lottie_fileName="setting.json"
         app:lottie_loop="true"
         app:lottie_speed="0.75"
