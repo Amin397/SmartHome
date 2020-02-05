@@ -53,5 +53,9 @@
     <string name="open_door">Open Door</string>
     <string name="call_unit">Call Unit</string>
     <string name="unit_or_buzz_number">Unit or Buzz Number</string>
+    <string name="unit_configuration">Unit Configuration</string>
+    <string name="date_time">Date and Time</string>
+    <string name="firm_ware">Update FrimWare</string>
+    <string name="reset_factory">Reset Factory</string>
 
 </resources>

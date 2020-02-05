@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/nav_unit_config_id"
+        android:enabled="true"
+        android:icon="@drawable/unit_configuration_24dp"
+        android:title="@string/unit_configuration"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_date_time_id"
+        android:enabled="true"
+        android:icon="@drawable/date_time_24dp"
+        android:title="@string/date_time"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_update_firmware_id"
+        android:enabled="true"
+        android:icon="@drawable/ic_update_black_24dp"
+        android:title="@string/firm_ware"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/nav_reset_factory_id"
+        android:enabled="true"
+        android:icon="@drawable/ic_reset_factory_24dp"
+        android:title="@string/reset_factory"
+        app:showAsAction="ifRoom" />
+
+</menu>

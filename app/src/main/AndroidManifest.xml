@@ -27,8 +27,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".VideoCall"
+        <activity android:name=".userinterface.visitorPanel.V_Setting"
             android:screenOrientation="landscape"/>
+        <activity
+            android:name=".VideoCall"
+            android:screenOrientation="landscape" />
         <activity
             android:name=".SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

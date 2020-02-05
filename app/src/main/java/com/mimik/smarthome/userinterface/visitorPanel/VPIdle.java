@@ -269,9 +269,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
              = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Snackbar snackbar = Snackbar
-                    .make(v, "Setting !", Snackbar.LENGTH_LONG);
-            snackbar.show();
+            startActivity(new Intent(VPIdle.this , V_Setting.class));
         }
     };
 

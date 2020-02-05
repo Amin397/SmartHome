@@ -145,7 +145,6 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="300dp"
-        android:visibility="gone"
         app:lottie_fileName="setting.json"
         app:lottie_loop="true"
         app:lottie_speed="0.75"
