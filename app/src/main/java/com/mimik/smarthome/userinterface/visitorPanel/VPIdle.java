@@ -1,11 +1,9 @@
 package com.mimik.smarthome.userinterface.visitorPanel;
 
-
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.Manifest;
 import android.animation.Animator;
 import android.app.AlertDialog;
@@ -41,8 +39,10 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.airbnb.lottie.LottieAnimationView;
+import com.daimajia.androidanimations.library.BaseViewAnimator;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -58,13 +58,11 @@ import com.mimik.smarthome.edgeSDK.MdsProvider;
 import com.mimik.smarthome.edgeSDK.MsgProvider;
 import com.mimik.smarthome.edgeSDK.SignalMsg;
 import com.mimik.smarthome.edgeSDK.SuperDriveProvider;
-
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
 import pub.devrel.easypermissions.AfterPermissionGranted;
 import pub.devrel.easypermissions.EasyPermissions;
 import retrofit2.Response;
@@ -77,7 +75,6 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     private final String WS_SERVER_URL = "ws://127.0.0.1:8083/ws/"+ BuildConfig.CLIENT_ID+"/msg/v1";
     private MsgProvider mMsgProvider;
-
     // User access tokens
     private String mEdgeAccessToken;
     private String mUserAccessToken;
@@ -133,21 +130,20 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
 
 
-
-
     private ImageView logo_click;
     private View include_V;
     private LottieAnimationView anim_setting;
     private LottieAnimationView anim_focuse;
 
     private TextView txt_buzz_num , txt_password;
-    private Button btn_buzz_click , btn_password_click;
 
     private TextView txt_time , txt_date;
 
     private Calendar calendar;
     private SimpleDateFormat dateFormat;
     private String date;
+
+    private EditText buzz_number , password;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -169,14 +165,36 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         anim_setting.setOnClickListener(settingClickListener);
 
         txt_buzz_num.setOnClickListener(buzzAnimClickListener);
-
+        txt_password.setOnClickListener(passwordClickListener);
     }
 
     private TextView.OnClickListener buzzAnimClickListener
              = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            animationBuzzButtonClick();
+            YoYo.with(Techniques.TakingOff)
+                    .duration(1500)
+                    .repeat(0)
+                    .playOn(txt_buzz_num);
+            txt_buzz_num.setEnabled(false);
+            buzz_number.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(VPIdle.this, "amin", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    };
+
+    private Button.OnClickListener passwordClickListener
+            = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            YoYo.with(Techniques.TakingOff)
+                    .duration(1500)
+                    .repeat(0)
+                    .playOn(txt_password);
+            txt_password.setEnabled(false);
         }
     };
 
@@ -206,45 +224,6 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         txt_time.setText(date);
     }
 
-    private Button.OnClickListener passwordClickListener
-             = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            animationPasswordButtonClick();
-        }
-    };
-
-    private void animationPasswordButtonClick() {
-        ViewPropertyAnimator viewPropertyAnimator = txt_password.animate();
-        viewPropertyAnimator.x(300f);
-        viewPropertyAnimator.setDuration(900);
-        viewPropertyAnimator.setListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animator animation) {
-                txt_password.setEnabled(true);
-                txt_password.setSelected(true);
-            }
-
-            @Override
-            public void onAnimationCancel(Animator animation) {
-
-            }
-
-            @Override
-            public void onAnimationRepeat(Animator animation) {
-
-            }
-        });
-    }
-
-    private void animationBuzzButtonClick() {
-    }
-
     private ImageView.OnClickListener logoAnimationVisitor
              = new View.OnClickListener() {
         @Override
@@ -268,7 +247,7 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
             @Override
             public void onAnimationEnd(Animator animation) {
                 include_V.setVisibility(View.VISIBLE);
-                anim_setting.playAnimation();
+                //anim_setting.playAnimation();
             }
 
             @Override
@@ -310,7 +289,8 @@ public class VPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     private void initializeComponents() {
 
-
+        buzz_number = (EditText) findViewById(R.id.edittext_buzz_num_id);
+        password = (EditText) findViewById(R.id.edittext_password_id);
         anim_setting = (LottieAnimationView) findViewById(R.id.anim_setting_id);
         anim_focuse = (LottieAnimationView) findViewById(R.id.anim_focuse_id);
         mBuzzText = (EditText) findViewById(R.id.TBNum);

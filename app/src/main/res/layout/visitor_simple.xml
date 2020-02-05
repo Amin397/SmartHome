@@ -19,11 +19,39 @@
             android:orientation="horizontal"
             android:layout_height="wrap_content">
 
+            <ImageButton
+                android:id="@+id/btn_call_id"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:elevation="15dp"
+                android:padding="10dp"
+                android:foreground="?attr/actionBarItemBackground"
+                android:layout_alignTop="@id/edittext_buzz_num_id"
+                android:layout_marginStart="40dp"
+                android:layout_alignBottom="@id/edittext_buzz_num_id"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/edittext_buzz_num_id"
+                android:background="@drawable/shape_call_btn"
+                android:src="@drawable/ic_call_green_24dp" />
+
             <TextView
                 android:background="@drawable/text_box"
                 android:layout_width="330dip"
                 android:id="@+id/back_buzz_id"
                 android:layout_height="110dip"/>
+
+            <EditText
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:enabled="true"
+                android:clickable="true"
+                android:id="@+id/edittext_buzz_num_id"
+                android:layout_marginStart="20dp"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/back_buzz_id"
+                android:background="@drawable/shape_edittext"
+                android:textSize="24sp"
+                android:focusable="true" />
 
             <TextView
                 android:textAlignment="center"
@@ -32,16 +60,6 @@
                 android:text="@string/unit_or_buzz_number"
                 android:layout_width="330dip"
                 android:layout_height="110dip"/>
-
-            <EditText
-                android:layout_width="350dp"
-                android:layout_height="70dp"
-                android:enabled="false"
-                android:layout_marginStart="20dp"
-                android:layout_centerVertical="true"
-                android:layout_toEndOf="@id/back_buzz_id"
-                android:background="@drawable/shape_edittext"
-                android:textSize="24sp" />
 
             <TextView
                 android:layout_width="330dp"
@@ -63,6 +81,21 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:elevation="15dp"
+                android:padding="10dp"
+                android:id="@+id/btn_pass_id"
+                android:foreground="?attr/actionBarItemBackground"
+                android:layout_alignTop="@id/edittext_password_id"
+                android:layout_marginStart="40dp"
+                android:layout_alignBottom="@id/edittext_password_id"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/edittext_password_id"
+                android:background="@drawable/shape_call_btn"
+                android:src="@drawable/ic_lock_green_24dp" />
+
             <TextView
                 android:background="@drawable/text_box"
                 android:layout_width="330dip"
@@ -81,6 +114,7 @@
                 android:layout_width="350dp"
                 android:layout_height="70dp"
                 android:enabled="false"
+                android:id="@+id/edittext_password_id"
                 android:layout_marginStart="20dp"
                 android:layout_centerVertical="true"
                 android:layout_toEndOf="@id/back_pass_id"
@@ -108,7 +142,7 @@
         app:lottie_fileName="setting.json"
         app:lottie_loop="true"
         app:lottie_speed="0.75"
-        app:lottie_autoPlay="true"
+        app:lottie_autoPlay="false"
         android:id="@+id/anim_setting_id"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
