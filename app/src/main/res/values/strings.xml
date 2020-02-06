@@ -63,5 +63,6 @@
     <string name="unit_num">Unit Number</string>
     <string name="buzz_id">Buzz ID</string>
     <string name="owner_id">Owner ID</string>
+    <string name="save_settings">Save</string>
 
 </resources>

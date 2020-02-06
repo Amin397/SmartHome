@@ -117,19 +117,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:text="Save"
+            android:text="@string/save_settings"
+            android:elevation="5dp"
+            android:drawableLeft="@drawable/ic_save_black_24dp"
+            android:id="@+id/btn_save_unit_info_id"
             android:textAlignment="center"
             android:layout_below="@id/l_edittext_4"
             android:textSize="24sp"
-            android:backgroundTint="#5c1349"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="#244955"
+            android:backgroundTint="@color/colorPrimary"
             android:layout_marginTop="50dp"
-            android:layout_width="match_parent"
-            android:padding="15dp"
-            android:layout_marginStart="50dp"
-            android:layout_marginEnd="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:padding="25dp"
             android:layout_height="wrap_content"/>
 
     </RelativeLayout>
-
 
 </LinearLayout>
