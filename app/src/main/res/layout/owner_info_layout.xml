@@ -23,10 +23,61 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:hint="@string/firm_ware"
-            app:boxStrokeWidth="2dp"
+            android:id="@+id/l_edittext_1"
             android:layout_below="@id/txt_owner_info"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/owner_id"
+            app:boxStrokeWidth="2dp"
+            android:layout_marginBottom="20dp"
+            android:textAlignment="center"
+            app:hintTextColor="@android:color/black"
+            app:boxStrokeColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:maxLines="1"
+                android:id="@+id/txt_owner_owner_id_id"
+                android:textAlignment="center"
+                android:maxLength="20"
+                android:textSize="24sp"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/l_edittext_2"
+            android:layout_below="@id/l_edittext_1"
+            android:layout_marginBottom="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/teel_number"
+            app:boxStrokeWidth="2dp"
+            android:textAlignment="center"
+            app:hintTextColor="@android:color/black"
+            app:boxStrokeColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:maxLines="1"
+                android:textAlignment="center"
+                android:maxLength="20"
+                android:textSize="24sp"
+                android:id="@+id/txt_phone_num_id"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:id="@+id/l_edittext_3"
+            android:layout_below="@id/l_edittext_2"
+            android:layout_marginBottom="20dp"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/owner_name"
+            app:boxStrokeWidth="2dp"
+            android:textAlignment="center"
             app:hintTextColor="@android:color/black"
             app:boxStrokeColor="@android:color/black"
             android:textColorHint="@android:color/black"
@@ -36,9 +87,52 @@
                 android:layout_width="match_parent"
                 android:maxLines="1"
                 android:maxLength="20"
+                android:id="@+id/txt_owner_name_id"
+                android:textAlignment="center"
                 android:textSize="24sp"
                 android:layout_height="wrap_content"/>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_marginBottom="20dp"
+            android:id="@+id/l_edittext_4"
+            android:layout_below="@id/l_edittext_3"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/owner_email"
+            app:boxStrokeWidth="2dp"
+            app:hintTextColor="@android:color/black"
+            app:boxStrokeColor="@android:color/black"
+            android:textColorHint="@android:color/black"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:textAlignment="center"
+                android:maxLines="1"
+                android:id="@+id/txt_owner_email_id"
+                android:maxLength="20"
+                android:textSize="24sp"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:text="@string/save_settings"
+            android:elevation="5dp"
+            android:drawableLeft="@drawable/ic_save_black_24dp"
+            android:id="@+id/btn_save_owner_info_id"
+            android:textAlignment="center"
+            android:layout_below="@id/l_edittext_4"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:textAllCaps="false"
+            android:textColor="#244955"
+            android:backgroundTint="@color/colorPrimary"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="wrap_content"
+            android:padding="25dp"
+            android:layout_height="wrap_content"/>
 
     </RelativeLayout>
 </LinearLayout>

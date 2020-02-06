@@ -64,5 +64,8 @@
     <string name="buzz_id">Buzz ID</string>
     <string name="owner_id">Owner ID</string>
     <string name="save_settings">Save</string>
+    <string name="teel_number">Phone Number</string>
+    <string name="owner_name">Owner Name</string>
+    <string name="owner_email">Email</string>
 
 </resources>

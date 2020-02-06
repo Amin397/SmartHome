@@ -110,7 +110,7 @@
                 android:layout_width="match_parent"
                 android:textAlignment="center"
                 android:maxLines="1"
-                android:id="@+id/txt_owner_id_id"
+                android:id="@+id/txt_owner_unit_id_id"
                 android:maxLength="20"
                 android:textSize="24sp"
                 android:layout_height="wrap_content"/>
