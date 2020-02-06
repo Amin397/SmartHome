@@ -7,12 +7,14 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.mimik.smarthome.R;
 import com.mimik.smarthome.fragments.DateAndTime;
 import com.mimik.smarthome.fragments.ResetFactory;
@@ -38,6 +40,16 @@ public class V_Setting extends AppCompatActivity {
         bottom_nav.setOnNavigationItemSelectedListener(mBottomNavItemClickListener);
         bottom_nav.setSelectedItemId(R.id.nav_unit_config_id);
     }
+
+    private FloatingActionButton.OnClickListener mSaveClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Snackbar snackbar = Snackbar
+                    .make(v, "Saved !", Snackbar.LENGTH_SHORT);
+            snackbar.show();
+        }
+    };
 
     private BottomNavigationView.OnNavigationItemSelectedListener mBottomNavItemClickListener
              = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -78,7 +90,5 @@ public class V_Setting extends AppCompatActivity {
 
     private void initViews() {
         bottom_nav = (BottomNavigationView) findViewById(R.id.bottom_navigation_view_id);
-        fab_save = (FloatingActionButton) findViewById(R.id.fab_save_id);
-        bottom_appBar = (BottomAppBar) findViewById(R.id.bottom_appbar_id);
     }
 }

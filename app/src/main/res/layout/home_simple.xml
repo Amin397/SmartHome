@@ -36,9 +36,9 @@
     <com.airbnb.lottie.LottieAnimationView
         android:layout_width="300dp"
         app:lottie_fileName="setting.json"
-        app:lottie_loop="true"
+        app:lottie_loop="false"
         app:lottie_speed="0.75"
-        app:lottie_autoPlay="true"
+        app:lottie_autoPlay="false"
         android:id="@+id/anim_setting_h_id"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"

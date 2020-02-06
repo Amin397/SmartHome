@@ -57,5 +57,11 @@
     <string name="date_time">Date and Time</string>
     <string name="firm_ware">Update FrimWare</string>
     <string name="reset_factory">Reset Factory</string>
+    <string name="unit_info">Unit Information</string>
+    <string name="node_id">Node ID</string>
+    <string name="owner_info">Owner Information</string>
+    <string name="unit_num">Unit Number</string>
+    <string name="buzz_id">Buzz ID</string>
+    <string name="owner_id">Owner ID</string>
 
 </resources>

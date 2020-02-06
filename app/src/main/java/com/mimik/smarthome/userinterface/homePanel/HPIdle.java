@@ -141,7 +141,7 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         call_init();
         AdminPanelInit();
 
-        anim_setting.playAnimation();
+        //anim_setting.playAnimation();
 
         img_accept_call.setOnClickListener(acceptCallClickListener);
         img_reject_call.setOnClickListener(rejectCallClicListener);
