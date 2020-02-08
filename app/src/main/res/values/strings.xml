@@ -6,17 +6,14 @@
     <string name="install_service_required_title">Additional install required</string>
     <string name="install_service_required">Please download the mimik edge service to begin sharing files with your friends and personal devices.</string>
     <string name="install_service_button">Open Play Store</string>
-
     <string name="toast_login">Edge token acquired.</string>
     <string name="toast_unassociate">Edge service unassociated.</string>
     <string name="toast_failed_login">Failed to login to portal.</string>
     <string name="toast_failed_unassociate">Failed to unassociate edge service.</string>
-
     <string name="toast_mcm">Docked the microservice.</string>
     <string name="toast_failed_mcm">Failed to dock microservice.</string>
     <string name="toast_message_mcm">Docked the message microservice.</string>
     <string name="toast_superdrive_mcm">Docked the superdrive microservice.</string>
-
     <string name="scan_for_devices">Scan for Devices</string>
     <string name="answer">Answer</string>
     <string name="ignore">Ignore</string>
@@ -29,7 +26,6 @@
     <string name="messaging_installed">messaging installed</string>
     <string name="end_call">End call</string>
     <string name="camera_and_audio_rationale">The primary function of this app is video communications and as such it requires permissions to access the Camera and Microphone.</string>
-
     <string name="passwordtxt">Password</string>
     <string name="title_activity_hplogin">Sign in</string>
     <string name="prompt_email">Email</string>
@@ -37,15 +33,12 @@
     <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="welcome">"Welcome !"</string>
-
     <string name="invalid_username_password">Not a valid username or password </string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
-
     <string name="Admin_User">Admin User:</string>
     <string name="Admin_Password">Admin Password:</string>
     <string name="Admin_Login_form">Admin login</string>
-
     <string name="VirtualKeys">Virtual Keys</string>
     <string name="FoB">FoB</string>
     <string name="Users">Users</string>
@@ -70,5 +63,10 @@
     <string name="logs">Log\'s</string>
     <string name="key_generator">Virtual Key Generator</string>
     <string name="mobile_app">Mobile Application Settings</string>
+    <string name="durations">Durations (days)</string>
+    <string name="start_date">Start Date :</string>
+    <string name="generate_qr_code">Generate QR Code</string>
+    <string name="generate_temp_pass">Generate Password</string>
+    <string name="temporary_generator">Security Generator</string>
 
 </resources>

@@ -33,7 +33,7 @@ public class H_Setting extends AppCompatActivity {
         initView();
 
         bottomNavigationView.setOnNavigationItemSelectedListener(mNavHomeItemClickListener);
-
+        bottomNavigationView.setSelectedItemId(R.id.nav_v_keys_generator_id);
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mNavHomeItemClickListener
@@ -64,7 +64,7 @@ public class H_Setting extends AppCompatActivity {
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container_visitor_id, fragment);
+        transaction.replace(R.id.frame_container_home_id, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }

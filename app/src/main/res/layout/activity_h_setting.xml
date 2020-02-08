@@ -24,6 +24,7 @@
         app:itemIconTint="@android:color/black"
         app:itemHorizontalTranslationEnabled="true"
         app:elevation="5dp"
+        app:itemIconSize="30dp"
         app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
         app:itemTextAppearanceInactive="@style/BottomNavigationView"
         app:itemTextColor="@android:color/black"
