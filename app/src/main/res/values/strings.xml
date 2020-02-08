@@ -67,5 +67,8 @@
     <string name="teel_number">Phone Number</string>
     <string name="owner_name">Owner Name</string>
     <string name="owner_email">Email</string>
+    <string name="logs">Log\'s</string>
+    <string name="key_generator">Virtual Key Generator</string>
+    <string name="mobile_app">Mobile Application Settings</string>
 
 </resources>

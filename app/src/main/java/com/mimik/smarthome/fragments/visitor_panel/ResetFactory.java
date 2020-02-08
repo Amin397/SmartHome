@@ -1,4 +1,4 @@
-package com.mimik.smarthome.fragments;
+package com.mimik.smarthome.fragments.visitor_panel;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 import com.mimik.smarthome.R;
 
-public class UpdateFrimWare extends Fragment {
+public class ResetFactory extends Fragment {
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class UpdateFrimWare extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.update_firmware , container , false);
+        View view = inflater.inflate(R.layout.reset_factory , container , false);
 
         return view;
     }

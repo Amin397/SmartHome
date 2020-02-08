@@ -7,26 +7,20 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.google.android.material.bottomappbar.BottomAppBar;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.mimik.smarthome.R;
-import com.mimik.smarthome.fragments.DateAndTime;
-import com.mimik.smarthome.fragments.ResetFactory;
-import com.mimik.smarthome.fragments.UnitConfigurations;
-import com.mimik.smarthome.fragments.UpdateFrimWare;
+import com.mimik.smarthome.fragments.visitor_panel.DateAndTime;
+import com.mimik.smarthome.fragments.visitor_panel.ResetFactory;
+import com.mimik.smarthome.fragments.visitor_panel.UnitConfigurations;
+import com.mimik.smarthome.fragments.visitor_panel.UpdateFrimWare;
 
 public class V_Setting extends AppCompatActivity {
 
 
     private BottomNavigationView bottom_nav;
-    private BottomAppBar bottom_appBar;
-    private FloatingActionButton fab_save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,16 +34,6 @@ public class V_Setting extends AppCompatActivity {
         bottom_nav.setOnNavigationItemSelectedListener(mBottomNavItemClickListener);
         bottom_nav.setSelectedItemId(R.id.nav_unit_config_id);
     }
-
-    private FloatingActionButton.OnClickListener mSaveClickListener
-             = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Snackbar snackbar = Snackbar
-                    .make(v, "Saved !", Snackbar.LENGTH_SHORT);
-            snackbar.show();
-        }
-    };
 
     private BottomNavigationView.OnNavigationItemSelectedListener mBottomNavItemClickListener
              = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -81,14 +65,15 @@ public class V_Setting extends AppCompatActivity {
             return false;
         }
     };
+
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frame_container_main_id , fragment);
+        transaction.replace(R.id.frame_container_visitor_id, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
     }
 
     private void initViews() {
-        bottom_nav = (BottomNavigationView) findViewById(R.id.bottom_navigation_view_id);
+        bottom_nav = (BottomNavigationView) findViewById(R.id.bottom_navigation_visitor_id);
     }
 }

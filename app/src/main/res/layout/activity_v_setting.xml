@@ -9,19 +9,17 @@
     tools:context="com.mimik.smarthome.userinterface.visitorPanel.V_Setting">
 
     <FrameLayout
-        android:id="@+id/frame_container_main_id"
+        android:id="@+id/frame_container_visitor_id"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-
-
-
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:layout_width="match_parent"
-            app:menu="@menu/bottom_nav_menu"
-            android:id="@+id/bottom_navigation_view_id"
+            app:menu="@menu/bottom_nav_menu_visitor"
+            android:id="@+id/bottom_navigation_visitor_id"
             android:layout_gravity="bottom"
+            app:itemRippleColor="@color/color_red"
             app:itemIconTint="@android:color/black"
             app:itemTextColor="@android:color/black"
             android:background="@color/colorPrimary"
