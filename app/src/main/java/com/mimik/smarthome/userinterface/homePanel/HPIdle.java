@@ -153,9 +153,7 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
              = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Snackbar snackbar = Snackbar
-                    .make(v, "setting !", Snackbar.LENGTH_LONG);
-            snackbar.show();
+            startActivity(new Intent(HPIdle.this , H_Setting.class));
         }
     };
 
