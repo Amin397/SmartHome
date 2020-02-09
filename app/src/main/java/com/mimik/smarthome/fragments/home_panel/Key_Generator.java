@@ -26,6 +26,8 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.mimik.smarthome.R;
 
+import java.util.Random;
+
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
@@ -60,8 +62,36 @@ public class Key_Generator extends Fragment {
         initViews(view);
 
         btn_QR.setOnClickListener(mQrCodeGeneratorClickListener);
+        btn_Temp_pass.setOnClickListener(mTemporaryPasswordClickListener);
 
         return view;
+    }
+
+    private Button.OnClickListener mTemporaryPasswordClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (txt_duration_QR.getText().toString().isEmpty()){
+                YoYo.with(Techniques.Shake)
+                        .duration(1000)
+                        .repeat(0)
+                        .playOn(L_duration);
+
+                L_duration.setErrorEnabled(true);
+                L_duration.setError("Duration Field is empty !");
+            }else {
+                generate_Temp_password();
+            }
+        }
+    };
+
+    private void generate_Temp_password() {
+        fab_share.setVisibility(View.VISIBLE);
+        txt_Temp_pass.setVisibility(View.VISIBLE);
+        btn_QR.setVisibility(View.GONE);
+        btn_Temp_pass.setVisibility(View.GONE);
+        Random random = new Random();
+        txt_Temp_pass.setText(String.valueOf(random.nextInt(99999 - 10000)+10000));
     }
 
     private Button.OnClickListener mQrCodeGeneratorClickListener

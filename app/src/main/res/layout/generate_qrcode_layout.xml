@@ -30,7 +30,7 @@
         android:textAlignment="center"
         android:layout_alignParentBottom="true"
         android:id="@+id/txt_temp_password_id"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
