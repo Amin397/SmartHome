@@ -391,8 +391,8 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
 
     }
 
-
-    private class generateQrcode extends AsyncTask<String, Void, Bitmap> {
+    // old generate qr code
+    /*private class generateQrcode extends AsyncTask<String, Void, Bitmap> {
         public final static int WIDTH = 400;
         ImageView bmImage;
 
@@ -424,7 +424,7 @@ public class HPIdle extends AppCompatActivity implements DeviceAdapter.IDeviceSe
         protected void onPostExecute(Bitmap result) {
             bmImage.setImageBitmap(result);
         }
-    }
+    }*/
 
     private void toast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
