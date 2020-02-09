@@ -1,6 +1,7 @@
 package com.mimik.smarthome.fragments.home_panel;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
 import android.os.Bundle;
@@ -63,9 +64,23 @@ public class Key_Generator extends Fragment {
 
         btn_QR.setOnClickListener(mQrCodeGeneratorClickListener);
         btn_Temp_pass.setOnClickListener(mTemporaryPasswordClickListener);
+        fab_share.setOnClickListener(mFloatingShareClickListener);
 
         return view;
     }
+
+    private FloatingActionButton.OnClickListener mFloatingShareClickListener
+             = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            if (btn_Temp_pass.isSelected()){
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.putExtra(Intent.EXTRA_TEXT, txt_Temp_pass.toString());
+                startActivity(Intent.createChooser(share, "Share Text"));
+            }
+        }
+    };
 
     private Button.OnClickListener mTemporaryPasswordClickListener
              = new View.OnClickListener() {
