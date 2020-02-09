@@ -68,5 +68,7 @@
     <string name="generate_qr_code">Generate QR Code</string>
     <string name="generate_temp_pass">Generate Password</string>
     <string name="temporary_generator">Security Generator</string>
+    <string name="name">Name</string>
+    <string name="buzz_number">Buzz Number</string>
 
 </resources>

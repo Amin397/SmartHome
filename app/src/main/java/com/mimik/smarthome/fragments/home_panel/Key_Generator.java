@@ -1,6 +1,5 @@
 package com.mimik.smarthome.fragments.home_panel;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Point;
@@ -12,31 +11,23 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 import com.mimik.smarthome.R;
-
 import java.util.Random;
-
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
-
 import static android.content.Context.WINDOW_SERVICE;
-import static androidx.core.content.ContextCompat.getSystemService;
 
 public class Key_Generator extends Fragment {
-
 
     private TextInputEditText txt_duration_QR;
     private Button btn_QR , btn_Temp_pass;
@@ -45,7 +36,6 @@ public class Key_Generator extends Fragment {
     private DatePicker start_date;
     private TextInputLayout L_duration;
     private String inputValue;
-
     private Bitmap bitmap;
     private QRGEncoder qrgEncoder;
     private FloatingActionButton fab_share;
@@ -73,12 +63,10 @@ public class Key_Generator extends Fragment {
              = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            if (btn_Temp_pass.isSelected()){
                 Intent share = new Intent(Intent.ACTION_SEND);
                 share.setType("text/plain");
                 share.putExtra(Intent.EXTRA_TEXT, txt_Temp_pass.toString());
                 startActivity(Intent.createChooser(share, "Share Text"));
-            }
         }
     };
 
@@ -105,6 +93,8 @@ public class Key_Generator extends Fragment {
         txt_Temp_pass.setVisibility(View.VISIBLE);
         btn_QR.setVisibility(View.GONE);
         btn_Temp_pass.setVisibility(View.GONE);
+        L_duration.setErrorEnabled(false);
+
         Random random = new Random();
         txt_Temp_pass.setText(String.valueOf(random.nextInt(99999 - 10000)+10000));
     }
@@ -132,6 +122,7 @@ public class Key_Generator extends Fragment {
         btn_QR.setVisibility(View.GONE);
         btn_Temp_pass.setVisibility(View.GONE);
         fab_share.setVisibility(View.VISIBLE);
+        L_duration.setErrorEnabled(false);
 
         inputValue = txt_duration_QR.getText().toString().trim() +"_"+start_date.getDayOfMonth() +"-"+ start_date.getMonth() +"-"+ start_date.getYear();
         if (inputValue.length() > 0) {
