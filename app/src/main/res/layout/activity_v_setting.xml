@@ -8,21 +8,32 @@
     android:layout_height="match_parent"
     tools:context="com.mimik.smarthome.userinterface.visitorPanel.V_Setting">
 
-    <FrameLayout
-        android:id="@+id/frame_container_visitor_id"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        app:elevation="5dp"
+        android:layout_height="?attr/actionBarSize">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
+        <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
-            app:menu="@menu/bottom_nav_menu_visitor"
-            android:id="@+id/bottom_navigation_visitor_id"
-            android:layout_gravity="bottom"
-            app:itemRippleColor="@color/color_red"
-            app:itemIconTint="@android:color/black"
-            app:itemTextColor="@android:color/black"
+            app:tabMode="fixed"
+            android:nestedScrollingEnabled="true"
+            app:tabTextColor="@android:color/black"
+            app:tabMaxWidth="0dp"
             android:background="@color/colorPrimary"
-            android:layout_height="wrap_content"/>
+            android:id="@+id/tab_layout_visitor_id"
+            app:tabGravity="fill"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
+            app:tabTextAppearance="@style/MineCustomTabText"
+            style="@style/MyStyle"
+            android:layout_height="match_parent">
+
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.viewpager.widget.ViewPager
+        android:layout_width="match_parent"
+        android:id="@+id/view_pager_visitor_id"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

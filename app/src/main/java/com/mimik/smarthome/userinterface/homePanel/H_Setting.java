@@ -1,24 +1,18 @@
 package com.mimik.smarthome.userinterface.homePanel;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 import com.mimik.smarthome.R;
 import com.mimik.smarthome.fragments.home_panel.Key_Generator;
 import com.mimik.smarthome.fragments.home_panel.Logs;
 import com.mimik.smarthome.fragments.home_panel.Mobile_App;
-import com.mimik.smarthome.fragments.visitor_panel.DateAndTime;
-import com.mimik.smarthome.fragments.visitor_panel.ResetFactory;
-import com.mimik.smarthome.fragments.visitor_panel.UnitConfigurations;
 
 public class H_Setting extends AppCompatActivity {
 
@@ -88,6 +82,6 @@ public class H_Setting extends AppCompatActivity {
     }
 
     private void initView() {
-        tabLayout = (TabLayout) findViewById(R.id.tab_layout_id);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout_home_id);
     }
 }

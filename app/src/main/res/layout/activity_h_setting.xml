@@ -21,7 +21,7 @@
             app:tabTextColor="@android:color/black"
             app:tabMaxWidth="0dp"
             android:background="@color/colorPrimary"
-            android:id="@+id/tab_layout_id"
+            android:id="@+id/tab_layout_home_id"
             app:tabGravity="fill"
             app:tabSelectedTextColor="@color/colorPrimaryDark"
             app:tabTextAppearance="@style/MineCustomTabText"
