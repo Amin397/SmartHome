@@ -27,10 +27,12 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".userinterface.homePanel.H_Setting"
-            android:screenOrientation="landscape"/>
+            android:screenOrientation="landscape"
+            android:parentActivityName=".userinterface.homePanel.HPIdle"/>
         <activity
             android:name=".userinterface.visitorPanel.V_Setting"
-            android:screenOrientation="landscape" />
+            android:screenOrientation="landscape"
+            android:parentActivityName=".userinterface.visitorPanel.VPIdle"/>
         <activity
             android:name=".VideoCall"
             android:screenOrientation="landscape" />

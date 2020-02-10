@@ -1,36 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent"
     android:background="@drawable/blank_background"
     tools:context="com.mimik.smarthome.userinterface.homePanel.H_Setting">
 
-    <FrameLayout
-        android:id="@+id/frame_container_home_id"
+    <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/bottom_navigation_home_id"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
-
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        app:menu="@menu/bottom_nav_menu_home"
-        android:id="@+id/bottom_navigation_home_id"
-        android:layout_alignParentBottom="true"
-        app:labelVisibilityMode="labeled"
-        app:itemRippleColor="@color/color_red"
-        app:itemIconTint="@android:color/black"
-        app:itemHorizontalTranslationEnabled="true"
         app:elevation="5dp"
-        app:itemIconSize="30dp"
-        app:itemTextAppearanceActive="@style/BottomNavigationView.Active"
-        app:itemTextAppearanceInactive="@style/BottomNavigationView"
-        app:itemTextColor="@android:color/black"
-        android:background="@color/colorPrimary"
-        android:layout_height="wrap_content"/>
+        android:layout_height="?attr/actionBarSize">
 
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            app:tabMode="auto"
+            android:nestedScrollingEnabled="true"
+            app:tabTextColor="@android:color/black"
+            android:background="@color/colorPrimary"
+            android:id="@+id/tab_layout_id"
+            app:tabGravity="center"
+            style="@style/MyStyle"
+            android:layout_height="match_parent">
 
-</RelativeLayout>
+        </com.google.android.material.tabs.TabLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:id="@+id/frame_container_home_id"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:layout_height="match_parent"/>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

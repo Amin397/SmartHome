@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.mimik.smarthome.R;
 import com.mimik.smarthome.fragments.home_panel.Key_Generator;
 import com.mimik.smarthome.fragments.home_panel.Logs;
@@ -21,7 +22,7 @@ import com.mimik.smarthome.fragments.visitor_panel.UnitConfigurations;
 
 public class H_Setting extends AppCompatActivity {
 
-    private BottomNavigationView bottomNavigationView;
+    private TabLayout tabLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,35 +33,52 @@ public class H_Setting extends AppCompatActivity {
 
         initView();
 
-        bottomNavigationView.setOnNavigationItemSelectedListener(mNavHomeItemClickListener);
-        bottomNavigationView.setSelectedItemId(R.id.nav_v_keys_generator_id);
+        tabDetails();
+
+        tabLayout.addOnTabSelectedListener(tabClickListener);
+
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mNavHomeItemClickListener
-             = new BottomNavigationView.OnNavigationItemSelectedListener() {
+    private TabLayout.OnTabSelectedListener tabClickListener
+             = new TabLayout.OnTabSelectedListener() {
         @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        public void onTabSelected(TabLayout.Tab tab) {
             Fragment fragment;
-            switch (item.getItemId()){
-                case R.id.nav_logs_id:{
+            switch (tab.getPosition()){
+                case 0:{
                     fragment = new Logs();
                     loadFragment(fragment);
-                    return true;
+                    break;
                 }
-                case R.id.nav_v_keys_generator_id:{
+                case 1:{
                     fragment = new Key_Generator();
                     loadFragment(fragment);
-                    return true;
+                    break;
                 }
-                case R.id.nav_mobile_app_id:{
+                case 2:{
                     fragment = new Mobile_App();
                     loadFragment(fragment);
-                    return true;
+                    break;
                 }
             }
-            return false;
+        }
+
+        @Override
+        public void onTabUnselected(TabLayout.Tab tab) {
+
+        }
+
+        @Override
+        public void onTabReselected(TabLayout.Tab tab) {
+
         }
     };
+
+    private void tabDetails() {
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.logs).setIcon(R.drawable.ic_list_black_24dp));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.key_generator).setIcon(R.drawable.qr_code));
+        tabLayout.addTab(tabLayout.newTab().setText(R.string.mobile_app).setIcon(R.drawable.application));
+    }
 
     private void loadFragment(Fragment fragment) {
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -70,6 +88,6 @@ public class H_Setting extends AppCompatActivity {
     }
 
     private void initView() {
-        bottomNavigationView = (BottomNavigationView) findViewById(R.id.bottom_navigation_home_id);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout_id);
     }
 }
