@@ -16,12 +16,15 @@
 
         <com.google.android.material.tabs.TabLayout
             android:layout_width="match_parent"
-            app:tabMode="auto"
+            app:tabMode="fixed"
             android:nestedScrollingEnabled="true"
             app:tabTextColor="@android:color/black"
+            app:tabMaxWidth="0dp"
             android:background="@color/colorPrimary"
             android:id="@+id/tab_layout_id"
-            app:tabGravity="center"
+            app:tabGravity="fill"
+            app:tabSelectedTextColor="@color/colorPrimaryDark"
+            app:tabTextAppearance="@style/MineCustomTabText"
             style="@style/MyStyle"
             android:layout_height="match_parent">
 
