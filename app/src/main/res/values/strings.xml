@@ -70,5 +70,8 @@
     <string name="temporary_generator">Security Generator</string>
     <string name="name">Name</string>
     <string name="buzz_number">Buzz Number</string>
+    <string name="expired">Expired</string>
+    <string name="date">Date</string>
+    <string name="qr_code">QR Code</string>
 
 </resources>
