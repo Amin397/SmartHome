@@ -31,9 +31,9 @@
         </com.google.android.material.tabs.TabLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:id="@+id/frame_container_home_id"
+        android:id="@+id/view_pager_home_id"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_height="match_parent"/>
 
